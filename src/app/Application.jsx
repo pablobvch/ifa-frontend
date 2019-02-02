@@ -2,6 +2,10 @@
 
 import React from "react";
 
-const Application = () => <h1>Hola React!</h1>;
+import Router from "./components/router";
+
+import routeDefinitions from "./routeDefinitions";
+
+const Application = () => <Router {...{routeDefinitions}} />;
 
 export default Application;
