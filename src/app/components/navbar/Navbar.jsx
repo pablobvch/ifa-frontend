@@ -3,13 +3,14 @@ import React, {useState, Fragment} from "react";
 
 import NavbarView from "./NavbarView";
 
+type Props = {||};
+
 const initialState = {
   isOpen: false
 };
 
 const getHandlers = (props, state, updateState) => ({
   onToggle: () =>
-    //console.log("state", state)
     updateState(state => ({
       ...state,
       isOpen: !state.isOpen
@@ -23,7 +24,7 @@ const render = (props, state, updateState) => (
 const renderUsing = (props, [state, updateState]) =>
   render(props, state, updateState);
 
-const Navbar = props => (
+const Navbar = (props: Props) => (
   <Fragment>{renderUsing(props, useState(initialState))}</Fragment>
 );
 

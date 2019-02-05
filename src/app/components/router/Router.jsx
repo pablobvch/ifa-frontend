@@ -11,12 +11,11 @@ type RouteDefinition = {|
   exact?: boolean,
   isPrivate: boolean,
   path: string,
-  loader: () => Promise<PageConfig<any>>,
-  map: Function
+  loader: () => Promise<PageConfig<any>>
 |};
 
 type Props = {|
-  routeDefinitions: RouteDefinition
+  routeDefinitions: Array<RouteDefinition>
 |};
 
 const getLoadable = ({loader}) => Loadable({loader, loading: Loading});

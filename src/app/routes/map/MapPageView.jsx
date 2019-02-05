@@ -1,10 +1,16 @@
 // @flow
 
 import React from "react";
+import styled from "styled-components";
 
 import Navbar from "../../components/navbar";
 
-const renderContent = () => <img src={require("./utils/mapView.png")} />;
+const StyledImg = styled.img`
+  width: 100%;
+  height: auto;
+`;
+
+const renderContent = () => <StyledImg src={require("./utils/mapView.png")} />;
 
 const renderNavbar = () => <Navbar />;
 
