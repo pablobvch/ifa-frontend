@@ -16,7 +16,8 @@ const renderContent = () => (
         number: data.number,
         date: data.date,
         dueDate: data.dueDate,
-        terms: data.terms
+        terms: data.terms,
+        balance: data.balance
       }}
     />
     <Body />

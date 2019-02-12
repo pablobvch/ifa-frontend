@@ -20,7 +20,7 @@ import IcoMoon from "react-icomoon";
 
 import pagesDefinitionsList from "./pagesDefinitionsList";
 
-import Hexagon from "./components/Hexagon";
+import Hexagon from "./Hexagon";
 
 type Props = {|
   isOpen: boolean,
@@ -38,6 +38,13 @@ const renderDropDown = () => (
     </DropdownMenu>
   </UncontrolledDropdown>
 );
+
+const StyledNavLink = styled(NavLink)`
+  font-weight: bold;
+  &:hover {
+    color: aqua !important;
+  }
+`;
 
 const NotificationIconContainer = styled.div`
   position: relative;
@@ -78,9 +85,9 @@ const renderIcons = () => (
 
 const renderNavItem = (pageDefinitions, index) => (
   <NavItem key={`navitem_${index}`}>
-    <NavLink key={`navlink_${index}`} href={pageDefinitions.path}>
+    <StyledNavLink key={`navlink_${index}`} href={pageDefinitions.path}>
       {pageDefinitions.title}
-    </NavLink>
+    </StyledNavLink>
   </NavItem>
 );
 
