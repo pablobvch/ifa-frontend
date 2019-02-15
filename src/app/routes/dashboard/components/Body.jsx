@@ -11,13 +11,6 @@ const initialState = {
   isShowingDiagram: true
 };
 
-/*
-onToggle: () =>
-  updateState(state => ({
-    ...state,
-    isOpen: !state.isOpen
-  }))*/
-
 const getHandlers = (props, state, updateState) => ({
   onClickDiagram: () =>
     updateState(state => ({

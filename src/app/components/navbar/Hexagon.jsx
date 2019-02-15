@@ -1,39 +1,16 @@
-//@ Flow
-
+// @flow
 import React from "react";
 import styled from "styled-components";
 
-const RightSide = styled.div`
-  float: left;
-  border-left: 15px solid #0000ff;
-  border-top: 25px solid transparent;
-  border-bottom: 25px solid transparent;
+type Props = {||};
+
+const StyledImg = styled.img`
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
 `;
 
-const MiddleSide = styled.div`
-  float: left;
-  width: 30px;
-  height: 50px;
-  background-color: #0000ff;
-`;
-
-const LeftSide = styled.div`
-  float: left;
-  border-right: 15px solid #0000ff;
-  border-top: 25px solid transparent;
-  border-bottom: 25px solid transparent;
-`;
-
-const Container = styled.div`
-  display: block;
-`;
-
-const Hexagon = () => (
-  <Container>
-    <LeftSide />
-    <MiddleSide />
-    <RightSide />
-  </Container>
-);
+const Hexagon = (props: Props) => <StyledImg src={require("./Hexagon.png")} />;
 
 export default Hexagon;

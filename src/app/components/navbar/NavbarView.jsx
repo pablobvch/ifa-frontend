@@ -33,8 +33,8 @@ const renderDropDown = () => (
       JS
     </DropdownToggle>
     <DropdownMenu right>
-      <DropdownItem href="/">Dashboard</DropdownItem>
-      <DropdownItem href="/map">Map</DropdownItem>
+      <DropdownItem href="/">Js</DropdownItem>
+      <DropdownItem href="/">Js</DropdownItem>
     </DropdownMenu>
   </UncontrolledDropdown>
 );
@@ -96,19 +96,27 @@ const renderLinks = () =>
     renderNavItem(pageDefinitions, index)
   );
 
+const StyledNav = styled(Nav)`
+  margin-left: 0px !important;
+`;
+
 const renderNav = () => (
-  <Nav className="ml-auto" navbar>
+  <StyledNav className="ml-auto" navbar>
     {renderLinks()}
     {renderIcons()}
     {renderDropDown()}
-  </Nav>
+  </StyledNav>
 );
+
+const StyledNavbarBrand = styled(NavbarBrand)`
+  width: 10%;
+`;
 
 const renderNavbarContent = ({onToggle, isOpen}) => (
   <Fragment>
-    <NavbarBrand href="/">
+    <StyledNavbarBrand href="/">
       <Hexagon />
-    </NavbarBrand>
+    </StyledNavbarBrand>
     <NavbarToggler onClick={onToggle} />
     <Collapse isOpen={isOpen} navbar>
       {renderNav()}
