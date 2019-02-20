@@ -65,13 +65,15 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "precommit": "lint-staged",
-    "commitmsg": "commitlint -e"
+    "commitmsg": "commitlint -e",
+    "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
     "@commitlint/cli": "7.1.2",
     "@commitlint/config-angular": "7.1.2",
     "@commitlint/prompt-cli": "7.1.2",
     "babel-core": "^6.26.0",
+    "chalk": "^2.4.2",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "3.0.1",
     "eslint-plugin-prettier": "2.6.2",
