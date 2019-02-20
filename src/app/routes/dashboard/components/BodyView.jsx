@@ -20,6 +20,10 @@ const StyledTd = styled.td`
   text-align: center;
 `;
 
+const StyledTr = styled.tr`
+  border: 1px solid #dee2e6;
+`;
+
 const TableContainer = styled.div`
   margin-top: -10px;
 `;
@@ -33,11 +37,11 @@ const renderDiagram = () => (
             <span className="font-weight-bold">Text</span>
           </StyledTd>
         </tr>
-        <tr className="bg-white">
+        <StyledTr className="bg-white">
           <td>
             <Timeline />
           </td>
-        </tr>
+        </StyledTr>
       </tbody>
     </table>
   </TableContainer>
@@ -46,39 +50,43 @@ const renderDiagram = () => (
 const renderIfNeeded = props =>
   props.isShowingDiagram === true ? renderDiagram() : renderMap();
 
-const StyledDiagramButton = styled(Button)`
-  /*background-color: ${props => (props.showDiagram ? "#000000" : "#ffffff")};
-  color: ${props => (props.showDiagram ? "#ffffff" : "#000000")};*/
+const StyledButton = styled(Button)`
+  background-color: ${props => props.backgroundcolor};
+  color: ${props => props.color};
+  border: 1px solid #dee2e6;
 `;
 
-const StyledMapButton = styled(Button)`
-  /*background-color: ${props => (!props.showDiagram ? "#000000" : "#ffffff")};
-  color: ${props => (!props.showDiagram ? "#ffffff" : "#000000")};
-  }};*/
-`;
-
-const renderButtonsGroup = ({isShowingDiagram, onClickDiagram, onClickMap}) => (
+const renderButtonsGroup = ({onClickDiagram, onClickMap, isShowingDiagram}) => (
   <div className="float-right">
     <ButtonGroup>
-      <StyledDiagramButton onClick={onClickDiagram}>
+      <StyledButton
+        backgroundcolor={isShowingDiagram ? "#ffffff" : "#f8f9fa"}
+        className="font-weight-bold"
+        color={isShowingDiagram ? "#000000" : "#dee2e6"}
+        onClick={onClickDiagram}
+      >
         Diagram
-      </StyledDiagramButton>
-      <StyledMapButton onClick={onClickMap}>Map</StyledMapButton>
+      </StyledButton>
+      <StyledButton
+        backgroundcolor={!isShowingDiagram ? "#ffffff" : "#f8f9fa"}
+        className="font-weight-bold"
+        color={!isShowingDiagram ? "#000000" : "#dee2e6"}
+        onClick={onClickMap}
+      >
+        Map
+      </StyledButton>
     </ButtonGroup>
   </div>
 );
 
-const renderControls = props => {
-  console.log("props renderControls", props);
-  return (
-    <div>
-      {renderButtonsGroup(props)}
-      <br />
-      <div>{renderIfNeeded(props)}</div>
-      <div />
-    </div>
-  );
-};
+const renderControls = props => (
+  <div>
+    {renderButtonsGroup(props)}
+    <br />
+    <div>{renderIfNeeded(props)}</div>
+    <div />
+  </div>
+);
 
 const render = props => {
   return <Fragment>{renderControls(props)}</Fragment>;

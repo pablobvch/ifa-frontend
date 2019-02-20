@@ -11,7 +11,7 @@ const TimelineWrap = styled.div`
 
 const HorizontalLine = styled.div`
   background-color: #aabbc4;
-  height: 1px;
+  height: 2px;
   position: relative;
   width: 100%;
 `;

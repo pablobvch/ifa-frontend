@@ -3,9 +3,7 @@ import React, {Fragment, useState} from "react";
 
 import BodyView from "./BodyView";
 
-type Props = {|
-  isShowingDiagram: boolean
-|};
+type Props = {||};
 
 const initialState = {
   isShowingDiagram: true

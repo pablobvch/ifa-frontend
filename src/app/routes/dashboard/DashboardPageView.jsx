@@ -6,22 +6,35 @@ import Body from "./components/Body";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Navbar from "../../components/navbar";
+
 import {data} from "./utils/invoice";
+
+import type ElementConfig from "react";
 
 const renderContent = () => (
   <div className="bg-light">
     <Header
       values={{
-        id: data.id,
-        number: data.number,
+        balance: data.balance,
         date: data.date,
         dueDate: data.dueDate,
-        terms: data.terms,
-        balance: data.balance
+        id: data.id,
+        number: data.number,
+        terms: data.terms
       }}
     />
     <Body />
-    <Footer />
+    <Footer
+      values={{
+        capacity: data.capacity,
+        commodities: data.commodities,
+        drayage: data.drayage,
+        incoterms: data.incoterms,
+        method: data.method,
+        serviceOptions: data.serviceOptions,
+        status: data.status
+      }}
+    />
   </div>
 );
 

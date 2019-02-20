@@ -3,73 +3,61 @@
 import React, {Fragment} from "react";
 import styled from "styled-components";
 
+import P from "./P";
+import Td from "./Td";
+import Th from "./Th";
+
 type Value = {|
-  id: string,
-  number: string,
+  balance: string,
   date: string,
   dueDate: string,
-  terms: string,
-  balance: string
+  id: string,
+  number: string,
+  terms: string
 |};
 
 type Props = {|
   values: Value
 |};
 
-const StyledP = styled.p`
-  clear: both;
-`;
-
-const StyledTd = styled.td`
-  border: 1px solid #dee2e6 !important;
-`;
-
-const StyledTh = styled.td`
-  border: 1px solid #dee2e6 !important;
-`;
-
 const renderTable = ({number, date, dueDate, terms, balance}) => (
   <table className="table bg-white">
     <thead>
       <tr>
-        <StyledTh colSpan="3">INVOICE - REVISION</StyledTh>
+        <Th colSpan="3">INVOICE - REVISION</Th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <StyledTd>
-          <StyledP>
+        <Td>
+          <P>
             <span className="float-left">Invoice #</span>
             <span className="float-right font-weight-bold">{number}</span>
-          </StyledP>
-          <StyledP>
+          </P>
+          <P>
             <span className="float-left">Date</span>
             <span className="float-right font-weight-bold">{date}</span>
-          </StyledP>
-          <StyledP>
+          </P>
+          <P>
             <span className="float-left">Due Date</span>
             <span className="float-right font-weight-bold">{dueDate}</span>
-          </StyledP>
-          <StyledP>
+          </P>
+          <P>
             <span className="float-left">Terms</span>
             <span className="float-right font-weight-bold">{terms}</span>
-          </StyledP>
-        </StyledTd>
-        <StyledTd>
+          </P>
+        </Td>
+        <Td>
           <span className="font-weight-bold">Bill to</span>
-        </StyledTd>
-        <StyledTd className="font-weight-bold">
+        </Td>
+        <Td className="font-weight-bold">
           <p>New Balance upon Re-booking</p>
-          <p className="text-warning">{balance}</p>
-        </StyledTd>
+          <p className="text-warning font-weight-bold">{balance}</p>
+        </Td>
       </tr>
     </tbody>
   </table>
 );
-
-{
-  /*  */
-}
 
 const renderTitle = ({id}) => (
   <h2>
@@ -78,11 +66,14 @@ const renderTitle = ({id}) => (
   </h2>
 );
 
-const Header = ({values}: Props) => (
-  <div className="container">
-    {renderTitle(values)}
-    {renderTable(values)}
-  </div>
-);
+const Header = ({values}: Props) => {
+  console.log(values);
+  return (
+    <div className="container">
+      {renderTitle(values)}
+      {renderTable(values)}
+    </div>
+  );
+};
 
 export default Header;
